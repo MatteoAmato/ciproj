@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.14-log)
 # Database: ciproj
-# Generation Time: 2017-03-23 08:02:57 +0000
+# Generation Time: 2017-03-23 10:28:14 +0000
 # ************************************************************
 
 
@@ -38,6 +38,15 @@ CREATE TABLE `ciproj_users` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+LOCK TABLES `ciproj_users` WRITE;
+/*!40000 ALTER TABLE `ciproj_users` DISABLE KEYS */;
+
+INSERT INTO `ciproj_users` (`user_id`, `user_email`, `user_key`, `user_name`, `user_lastname`, `user_nickname`, `user_role`, `hidden`, `datains`)
+VALUES
+	(1,'admin@admin.dev','1f5011aeb7a1b4cda942a8eec2a58125','admin_name','admin_lastname','admin',0,NULL,'2017-03-23 09:37:26');
+
+/*!40000 ALTER TABLE `ciproj_users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
