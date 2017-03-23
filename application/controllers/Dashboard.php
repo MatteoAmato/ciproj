@@ -8,6 +8,9 @@ class Dashboard extends CI_Controller {
 		$this->load->model('auth_model');
 	}
 
-
+	public function index()
+	{
+		echo 'dashboard';
+	}
 
 }
