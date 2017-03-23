@@ -48,7 +48,7 @@ class Auth_model extends CI_Model {
     if ($query->num_rows() === 1) {
       $result = $query->row_array();
       // print_r($result);
-      if ( $result['user_key'] == md5($user_data['user_email']) ) {
+      if ( $result['user_key'] == md5($user_data['user_key']) ) {
         $check = 1;
       } else {
         $check = 'Password sbagliata';
