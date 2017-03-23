@@ -49,7 +49,7 @@ class Auth_model extends CI_Model {
       $result = $query->row_array();
       // print_r($result);
       if ( $result['user_key'] == md5($user_data['user_key']) ) {
-        $check = 1;
+        $check = (int)$result['user_id'];
       } else {
         $check = 'Password sbagliata';
       }
@@ -57,6 +57,16 @@ class Auth_model extends CI_Model {
       $check = 'Email non esiste';
     }
     return $check;
+  }
+
+  public function get_user_by_id($user_id)
+  {
+    $result = null;
+    $query = $this->db->get_where('users', array('user_id' => $user_id));
+    if ($query->num_rows() === 1) {
+      $result = $query->row_array();
+    }
+    return $result;
   }
 
 

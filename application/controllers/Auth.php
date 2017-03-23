@@ -18,11 +18,19 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/login');
 	}
 
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('/auth/login', 'refresh');
+	}
+
 	public function check_user()
 	{
 		$user_data = $this->input->post();
 		$verify_user = $this->auth_model->check_user($user_data);
-		if ($verify_user === 1) {
+		if (is_int($verify_user)) {
+			$this->session->logged_in = 1;
+			$this->session->logged_data = $this->auth_model->get_user_by_id($verify_user);
 			redirect('/dashboard/', 'refresh');
 		} else {
 			echo '<h1>' . $verify_user . '</h1>';
