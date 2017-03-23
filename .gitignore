@@ -15,8 +15,8 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
-/tests
-/system
+tests/
+system/
 
 DCO.txt
 license.txt
