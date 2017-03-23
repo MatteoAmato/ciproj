@@ -102,7 +102,7 @@ $db['docker'] = array(
 	'password' => 'root',
 	'database' => 'ciproj',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
+	'dbprefix' => 'ciproj_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
